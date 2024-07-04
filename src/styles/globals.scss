@@ -1,0 +1,140 @@
+@import "./breakpoints";
+
+:root {
+  --background: #121214;
+  --link: #7b7b7b;
+  --text: #c4c4cc;
+  --title: #e1e1e6;
+  --alert: #e9ba15;
+  --success: #2e7d32;
+  --error: #d21b1b;
+
+  // General colors
+  --white: #ffffff;
+  --black: #000000;
+
+  --green-dark: #015f43;
+  --green: #00875f;
+  --green-light: #00b37e;
+
+  --red-dark: #aa2834;
+  --red: #f75a68;
+
+  // Grayscale
+  --gray-400: #323238;
+  --gray-300: #29292e;
+  --gray-200: #202024;
+
+  // Component colors
+  --placeholder: #7c7c8a;
+  --disabled: #ebebeb;
+  --border: #eeeeee;
+}
+
+:focus {
+  outline: none;
+}
+
+$breakpoint-xs: 375px; // Extra small, para smartphones
+$breakpoint-sm: 480px; // Small, para smartphones grandes
+$breakpoint-md: 768px; // Medium, para tablets
+$breakpoint-lg: 1024px; // Large, para desktops
+$breakpoint-xl: 1200px; // Extra large, para monitors grandes
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--background);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  color: var(--text-700);
+  background-color: transparent !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  background-color: var(--background);
+}
+
+// Styles for mobiles
+@include media-xs {
+  h1 {
+    font-size: 32px;
+    line-height: 38.73px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 29.05px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+}
+
+// Styles for desktops
+@include media-lg {
+  h1 {
+    font-size: 48px;
+    line-height: 58.09px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+}
+
+// Scrollbar SCSS
+html {
+  scroll-behavior: smooth;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c2c2c2 rgb(255, 255, 255);
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #797775;
+}
