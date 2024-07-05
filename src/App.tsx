@@ -1,10 +1,6 @@
-import { Button } from "./components/Button";
+import Home from "./pages/Home";
 import "./styles/index.scss";
 
 export default function App() {
-  return (
-    <div>
-      <Button placeholder="teste" />
-    </div>
-  );
+  return <Home />;
 }
