@@ -1,8 +1,14 @@
-
 import { Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import styles from "./styles.module.scss";
+import { useState } from "react";
 
-export default function Modal() {
+interface ModalProps {
+  isOpen: boolean;
+}
+
+export default function Modal(props: ModalProps) {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
     <div>
       <Dialog.Root>
@@ -12,9 +18,6 @@ export default function Modal() {
 
         <Dialog.Content maxWidth="450px">
           <Dialog.Title>Edit profile</Dialog.Title>
-          <Dialog.Description size="2" mb="4">
-            Make changes to your profile.
-          </Dialog.Description>
 
           <Flex direction="column" gap="3">
             <label>
@@ -39,9 +42,7 @@ export default function Modal() {
 
           <Flex gap="3" mt="4" justify="end">
             <Dialog.Close>
-              <button>
-                Cancel
-              </button>
+              <button>Cancel</button>
             </Dialog.Close>
             <Dialog.Close>
               <button>Save</button>

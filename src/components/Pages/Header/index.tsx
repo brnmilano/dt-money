@@ -1,7 +1,8 @@
-import { Button } from "../../Button";
+import { Button } from "../../Form/Button";
 import Logo from "../../../../public/logo.png";
 import Container from "../../Container/Container";
 import styles from "./styles.module.scss";
+import Modal from "../../Modal";
 
 export default function Header() {
   return (
@@ -16,7 +17,9 @@ export default function Header() {
             <h1>DT Money</h1>
           </div>
 
-          <Button placeholder="Nova transação" />
+          {/* onClick={openModal} */}
+
+          <Button>Nova transação</Button>
         </div>
       </Container>
     </div>

@@ -1,0 +1,44 @@
+.button {
+  &.buttonOutlined {
+    background-color: var(--gray-300) !important;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+
+    &:hover {
+      background-color: var(--gray-300);
+      border: 1px solid transparent;
+    }
+  }
+
+  &.buttonSizeLarge {
+    padding: 20px 30px;
+  }
+
+  &.butonSizeMedium {
+    padding: 20px 24px;
+  }
+
+  .progressBar {
+    position: absolute;
+  }
+
+  .loading {
+    background-color: var(--red);
+  }
+}
+
+.secondary {
+  &.buttonOutlined {
+    background-color: var(--secondary);
+    border-radius: 5px;
+    border: 1px solid transparent;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+  }
+}
