@@ -15,7 +15,6 @@ export function Button({
   theme = "primary",
   children,
   color = "primary",
-  size = "large",
   variant = "outlined",
   loading,
   disabled,
@@ -29,16 +28,14 @@ export function Button({
   return (
     <ButtonMUI
       {...rest}
-      className={`${styles.button} 
-      ${theme === "primary" ? styles.primary : theme === "secondary"}`}
+      className={`${styles.button} ${
+        theme === "primary" ? styles.primary : styles.secondary
+      }`}
       classes={{
         ...rest.classes,
         outlined: clsx(outlinedButtonColor, rest.classes?.outlined),
-        sizeLarge: clsx(styles.buttonSizeLarge, rest.classes?.sizeLarge),
-        sizeMedium: clsx(styles.butonSizeMedium, rest.classes?.sizeMedium),
       }}
       color={color}
-      size={size}
       sx={{ height: 45, whiteSpace: "nowrap", ...rest.sx }}
       variant={variant}
       disabled={disabled}

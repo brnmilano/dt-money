@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  gap: 15px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background-color: var(--gray-300);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    padding: 16px 24px;
+    cursor: pointer;
+
+    &:first-child {
+      transition: all 0.3s;
+
+      svg {
+        color: var(--green);
+        transition: all 0.3s;
+      }
+
+      &:focus {
+        background-color: var(--green);
+
+        svg {
+          color: var(--white);
+        }
+      }
+    }
+
+    &:last-child {
+      transition: all 0.3s;
+
+      svg {
+        color: var(--red);
+        transition: all 0.3s;
+      }
+
+      &:focus {
+        background-color: var(--red);
+
+        svg {
+          color: var(--white);
+        }
+      }
+    }
+  }
+}

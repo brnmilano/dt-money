@@ -1,4 +1,5 @@
 import Container from "../../Container/Container";
+import SearchForm from "../../SearchForm";
 import styles from "./styles.module.scss";
 
 interface TableProps {
@@ -11,6 +12,8 @@ export default function Table(props: TableProps) {
   return (
     <Container>
       <div className={styles.container}>
+        <SearchForm />
+        
         <table>
           <tbody>
             <tr>
