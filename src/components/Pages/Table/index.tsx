@@ -17,38 +17,40 @@ export default function Table(props: TableProps) {
   });
 
   return (
-    <Container>
-      <div className={styles.container}>
-        <SearchForm />
+    <div className={styles.container}>
+      <Container>
+        <div>
+          <SearchForm />
 
-        <div className={styles.table}>
-          <table>
-            <tbody>
-              {transactions.map((transaction, index) => {
-                return (
-                  <tr key={`${transaction.id} ${index}`}>
-                    <td width="50%">{transaction.description}</td>
-                    <td
-                      className={
-                        variant === transaction.type
-                          ? styles.income
-                          : styles.outcome
-                      }
-                    >
-                      {transaction.type === "outcome" && "- "}
-                      {priceFormatter.format(transaction.price)}
-                    </td>
-                    <td>{transaction.category}</td>
-                    <td>
-                      {dateFormatter.format(new Date(transaction.createdAt))}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <div className={styles.table}>
+            <table>
+              <tbody>
+                {transactions.map((transaction, index) => {
+                  return (
+                    <tr key={`${transaction.id} ${index}`}>
+                      <td>{transaction.description}</td>
+                      <td
+                        className={
+                          variant === transaction.type
+                            ? styles.income
+                            : styles.outcome
+                        }
+                      >
+                        {transaction.type === "outcome" && "- "}
+                        {priceFormatter.format(transaction.price)}
+                      </td>
+                      <td>{transaction.category}</td>
+                      <td>
+                        {dateFormatter.format(new Date(transaction.createdAt))}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 }

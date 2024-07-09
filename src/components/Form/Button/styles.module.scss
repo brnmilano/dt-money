@@ -1,3 +1,5 @@
+@import "../../../styles/breakpoints";
+
 .button {
   &.buttonOutlined {
     background-color: var(--green);
@@ -7,7 +9,7 @@
     font-size: 14px;
     font-weight: 500;
     text-transform: none;
-    padding: 20px 30px;
+    padding: 10px 20px;
 
     &:hover {
       background-color: var(--green-light);
@@ -58,6 +60,14 @@
       background-color: transparent;
       border: 1px solid var(--green-light);
       color: var(--green);
+    }
+  }
+}
+
+@include media-lg {
+  .button {
+    &.buttonOutlined {
+      padding: 20px 30px;
     }
   }
 }

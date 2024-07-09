@@ -1,7 +1,9 @@
+@import "../../../styles/breakpoints";
+
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
   width: 100%;
   margin-top: -80px;
   color: var(--white);
@@ -19,5 +21,12 @@
       justify-content: space-between;
       align-items: center;
     }
+  }
+}
+
+@include media-md {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
   }
 }

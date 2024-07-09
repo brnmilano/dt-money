@@ -1,5 +1,7 @@
+@import "../../../styles/breakpoints";
+
 .container {
-  margin: 64px auto 0;
+  margin: 34px auto 0;
 
   .table {
     max-height: 450px;
@@ -11,7 +13,7 @@
       border-spacing: 0 8px;
 
       td {
-        padding: 20px 32px;
+        padding: 20px 10px;
         background-color: var(--gray-300);
         color: var(--white);
 
@@ -32,6 +34,20 @@
 
       .outcome {
         color: var(--red);
+      }
+    }
+  }
+}
+
+@include media-lg {
+  .container {
+    margin: 64px auto 0;
+
+    .table {
+      table {
+        td {
+          padding: 20px 32px;
+        }
       }
     }
   }
