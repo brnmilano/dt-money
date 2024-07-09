@@ -1,25 +1,23 @@
-.container {
-  .content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    width: 100%;
-    margin-top: -80px;
-    color: var(--white);
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+  margin-top: -80px;
+  color: var(--white);
 
-    .card {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 32px;
+    border-radius: 6px;
+    background-color: var(--gray-400);
+
+    .typeAndValue {
       display: flex;
-      flex-direction: column;
-      gap: 25px;
-      padding: 32px;
-      border-radius: 6px;
-      background-color: var(--gray-400);
-
-      .typeAndValue {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+      justify-content: space-between;
+      align-items: center;
     }
   }
 }

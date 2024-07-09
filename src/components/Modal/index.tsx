@@ -1,14 +1,18 @@
 import {
-  FormSchemaProps,
-  FormValidationSchema,
+  NewTransactionFormSchema,
+  TransactionFormSchema,
 } from "../../models/formValidationSchema";
 import { useState } from "react";
 import { Box, Modal, Typography } from "@mui/material";
 import { Input } from "../Form/Input/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import ModalButtons from "./ModalButton";
 import { Button } from "../Form/Button";
+import { toast } from "react-toastify";
+import { TransactionContext } from "../../hooks/useTransactions";
+import { useContextSelector } from "use-context-selector";
+import ModalButtons from "./ModalButton";
+import styles from "./styles.module.scss";
 
 const style = {
   position: "absolute",
@@ -31,23 +35,66 @@ interface DialogModalProps {
 export default function DialogModal(props: DialogModalProps) {
   const { isOpen, handleClose } = props;
 
+  const createTransaction = useContextSelector(
+    TransactionContext,
+    (context) => {
+      return context.createTransaction;
+    }
+  );
+
   const [selectedTransactionType, setSelectedTransactionType] =
     useState<string>("");
 
   const {
     control,
-    //handleSubmit,
-    formState: { errors },
-  } = useForm<FormSchemaProps>({
-    resolver: zodResolver(FormValidationSchema),
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<TransactionFormSchema>({
+    resolver: zodResolver(NewTransactionFormSchema),
     shouldFocusError: false,
-    defaultValues: {},
+    defaultValues: {
+      description: "",
+      price: 0,
+      category: "",
+    },
   });
 
+  /**
+   * Atualiza o tipo da transação selecionada.
+   *
+   * @param option O tipo de transação selecionado pelo usuário.
+   */
   const handleSelectedTransactionType = (option: string) => {
     setSelectedTransactionType(option);
+  };
 
-    console.log(selectedTransactionType);
+  /**
+   * Cria uma nova transação com os dados obtidos no formulário.
+   *
+   * @param data Formulário para criação de transações.
+   * @returns Se nenhum tipo de transação for selecionado, interrompe a execução e informa ao usuário que é obrigatório selecionar um tipo.
+   */
+  const handleCreateNewTransaction = async (data: TransactionFormSchema) => {
+    if (!selectedTransactionType) {
+      toast.warning("Selecione o tipo de transação.");
+
+      return;
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const formattedData = {
+      ...data,
+      type: selectedTransactionType,
+      createdAt: new Date(),
+    };
+
+    await createTransaction(formattedData);
+
+    reset();
+
+    handleClose();
   };
 
   return (
@@ -58,7 +105,10 @@ export default function DialogModal(props: DialogModalProps) {
             Nova transação
           </Typography>
 
-          <Box display="flex" flexDirection="column" gap="25px">
+          <form
+            className={styles.formWrapper}
+            onSubmit={handleSubmit(handleCreateNewTransaction)}
+          >
             <Input
               control={control}
               errors={errors}
@@ -71,6 +121,7 @@ export default function DialogModal(props: DialogModalProps) {
               errors={errors}
               registerField="price"
               placeholder="Preço"
+              type="number"
             />
 
             <Input
@@ -82,8 +133,14 @@ export default function DialogModal(props: DialogModalProps) {
 
             <ModalButtons handleOptionChoice={handleSelectedTransactionType} />
 
-            <Button>Cadastrar</Button>
-          </Box>
+            <Button
+              type="submit"
+              loading={isSubmitting}
+              disabled={isSubmitting}
+            >
+              Cadastrar
+            </Button>
+          </form>
         </Box>
       </Modal>
     </>

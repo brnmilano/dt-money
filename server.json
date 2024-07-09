@@ -1,0 +1,36 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 5000,
+      "createdAt": "2024-07-08T18:50:16.091Z"
+    },
+    {
+      "id": 2,
+      "description": "Sushi",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 200,
+      "createdAt": "2024-07-08T18:55:09.870Z"
+    },
+    {
+      "id": 3,
+      "description": "Aluguel",
+      "type": "outcome",
+      "category": "Moradia",
+      "price": 1000,
+      "createdAt": "2024-07-08T18:55:09.870Z"
+    },
+    {
+      "id": 4,
+      "description": "Salário",
+      "type": "income",
+      "category": "Salário",
+      "price": 5000,
+      "createdAt": "2024-07-08T18:55:09.870Z"
+    }
+  ]
+}

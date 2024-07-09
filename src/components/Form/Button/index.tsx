@@ -7,7 +7,13 @@ import clsx from "clsx";
 import styles from "./styles.module.scss";
 
 interface ButtonProps extends MaterialButtonProps {
+  /**
+   * Indica se o botão está em estado de carregamento.
+   */
   loading?: boolean;
+  /**
+   * Define o tema do botão, podendo ser 'primary' ou 'secondary'.
+   */
   theme?: "primary" | "secondary";
 }
 

@@ -1,34 +1,38 @@
 .container {
   margin: 64px auto 0;
 
-  table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px;
-    margin-top: 24px;
+  .table {
+    max-height: 450px;
+    overflow-y: auto;
 
-    td {
-      padding: 20px 32px;
-      background-color: var(--gray-300);
-      color: var(--white);
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
 
-      &:first-child {
-        border-top-left-radius: 6px;
-        border-bottom-left-radius: 6px;
+      td {
+        padding: 20px 32px;
+        background-color: var(--gray-300);
+        color: var(--white);
+
+        &:first-child {
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
       }
 
-      &:last-child {
-        border-top-right-radius: 6px;
-        border-bottom-right-radius: 6px;
+      .income {
+        color: var(--green-light);
       }
-    }
 
-    .income {
-      color: var(--green-light);
-    }
-
-    .outcome {
-      color: var(--red);
+      .outcome {
+        color: var(--red);
+      }
     }
   }
 }
