@@ -16,6 +16,12 @@
   npm run dev
   ```
 
+  Iniciar o servidor json.server para efetuar requisições:
+
+  ```
+  npm run dev:server
+  ```
+
   Iniciar em modo de produção:
 
   ```
@@ -28,15 +34,15 @@
   npm run build
   ```
 
-  Iniciar o modo Lint para validar a formatação do código do projeto:
+  Iniciar o modo Lint para validar a formatação no código do projeto:
 
   ```
   npm run lint
   ```
 
-  Iniciar o modo Test em tempo real. Após rodar o comando, aperte W ou A no seu terminal para verificar os testes:
+  Iniciar o modo Lint para corrigir erros no código do projeto:
 
   ```
-  npm run test
+  npm run lint:fix
   ```
 
